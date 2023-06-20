@@ -1,0 +1,24 @@
+#sidebar{
+    background-color: #000;
+    position: absolute;
+    /*height: 100vh;*/
+    left: 0px;
+    top: 0px;
+}
+#sidebar ul{
+    padding : 0px;
+    margin-top: 120px;
+}
+#sidebar li{
+    background-color: #fff;
+    padding: 10px;
+    width: 64px;
+    height: 64px;
+    margin:20px;
+}
+#sidebar p{
+    color: #fff;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin:auto;
+}
