@@ -1,0 +1,21 @@
+.recharts-legend-wrapper{
+    margin-right: 50px;
+}
+.barChart-container{
+    background:#FBFBFB;
+    padding-top: 20px;
+    width: 830px;
+}
+.activityChartTooltip{
+    background-color: #E60000;
+    color: white;
+    font-weight: 500;
+    font-size: 7px;
+    height: 45px;
+    width: 39px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px 5px;
+}
