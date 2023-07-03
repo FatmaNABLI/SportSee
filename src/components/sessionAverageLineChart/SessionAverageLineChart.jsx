@@ -1,8 +1,8 @@
 import {Legend, Line, LineChart, Rectangle, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import getUSerAverageSessions from '../../entity/UserAverageSessions';
 import './SessionAverageLineChart.css'
-function SessionAverageLineChart({idUser}){
-    const data =getUSerAverageSessions(idUser);
+function SessionAverageLineChart({data}){
+
     const CustomTooltipSessions = ({ active, payload, label }) => {
         if (active && payload) {
           return (

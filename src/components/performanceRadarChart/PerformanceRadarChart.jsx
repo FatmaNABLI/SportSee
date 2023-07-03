@@ -1,8 +1,7 @@
 import {PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from 'recharts';
-import getUSerPerformance from '../../entity/UserPerformance';
 import './PerformanceRadarChart.css'
-function PerformanceRadarChart({idUser}){
-    const data =getUSerPerformance(idUser);
+function PerformanceRadarChart({data}){
+   
     return(
         <div className="performance-chart">
             <ResponsiveContainer width="100%" height="100%">

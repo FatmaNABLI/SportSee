@@ -10,7 +10,7 @@ import {
     Legend
   } from "recharts";
 
-function ActivityBarChart({idUser}){
+function ActivityBarChart({data}){
     function CustomTooltipActivity ({payload, active}) {
         if (active) {
             return (
@@ -22,7 +22,7 @@ function ActivityBarChart({idUser}){
         }
         return null
     }
-    const data = getUSerActivity(idUser);
+   
     return(
         <div className="barChart-container" style={{background:"#FBFBFB"}}>
             <BarChart
