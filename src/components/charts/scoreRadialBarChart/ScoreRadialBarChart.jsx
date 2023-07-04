@@ -1,18 +1,21 @@
-import { Legend, PolarAngleAxis, RadialBar, RadialBarChart, ResponsiveContainer } from 'recharts'
+import {PolarAngleAxis, RadialBar, RadialBarChart, ResponsiveContainer } from 'recharts'
 import './ScoreRadialBarChart.css'
 function ScoreRadialBarChart({data}){
     console.log(data);      
     return(
 
         <div className="score-chart">
-            <ResponsiveContainer width="100%" height="100%">
-                 <RadialBarChart data={data}
-                    innerRadius={75}
-                    background
+           <div className="container_score">
+            <RadialBarChart data={data}
+                    cx="50%" 
+                    cy="50%"
+                    innerRadius={90}
+                    width={200} height={200}
+                    background = "#fff"
                     outerRadius={100}
                     barSize={10}
-                    startAngle={90}
-                    endAngle={-270}>
+                    startAngle={180}
+                    endAngle={-180}>
                       <PolarAngleAxis
                         type="number"
                         domain={[0, 100]}
@@ -22,22 +25,22 @@ function ScoreRadialBarChart({data}){
                       <RadialBar
                         dataKey="score"
                         cornerRadius={30 / 2}
-                        fill="#0BEFF2"
+                        fill="#FF0000"
+
                       />
+                       <circle cx="50%" cy="50%" fill="white" r="85"></circle>
                       <text
-                        x={400 / 2}
-                        y={400 / 2}
+                        x={100}
+                        y={100}
                         textAnchor="middle"
                         dominantBaseline="middle"
                         className="progress-label"
                       >
-                      89  
-                </text>  
+                      {data[0].score}%
+                      </text>  
               </RadialBarChart>
 
-           
-               
-            </ResponsiveContainer>
+            </div>         
         </div>
     )
 

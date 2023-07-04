@@ -1,4 +1,3 @@
-import getUSerActivity from '../../entity/UserActivity';
 import './ActivityBarChart.css'
 import {
     BarChart,

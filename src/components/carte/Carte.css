@@ -1,0 +1,11 @@
+.carte{
+    background-color: #FBFBFB;
+    height: 124px;
+    width: 100%;
+    margin: auto;
+}
+.img-container{
+    width: 60px;
+    height: 60px;
+    color: red;
+}

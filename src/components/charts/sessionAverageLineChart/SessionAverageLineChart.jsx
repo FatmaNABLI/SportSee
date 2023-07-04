@@ -1,5 +1,4 @@
 import {Legend, Line, LineChart, Rectangle, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import getUSerAverageSessions from '../../entity/UserAverageSessions';
 import './SessionAverageLineChart.css'
 function SessionAverageLineChart({data}){
 
