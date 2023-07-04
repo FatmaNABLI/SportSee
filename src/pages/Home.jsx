@@ -16,7 +16,7 @@ function Home() {
       <div className="charts-flex-container">
         <SessionAverageLineChart data={user.getAverageSessions()}/>
         <PerformanceRadarChart data={user.getPerformance()}/>
-        <ScoreRadialBarChart data={user.getScore()} />
+        <ScoreRadialBarChart data={[user.getScore()]} />
       </div>
     </main>
   )
