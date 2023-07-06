@@ -1,7 +1,7 @@
 import {PolarAngleAxis, RadialBar, RadialBarChart, ResponsiveContainer } from 'recharts'
 import './ScoreRadialBarChart.css'
 function ScoreRadialBarChart({data}){
-    console.log(data);      
+    //console.log(data);      
     return(
 
         <div className="score-chart">

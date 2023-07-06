@@ -1,9 +1,14 @@
 import './Carte.css'
 
-function Carte(){
+function Carte({data}){
     return(
             <div className="carte">
-                <div className="img-container">
+                <div className="img-text"> 
+                    <img src={data.icone} alt="" />
+                    <div>
+                        <p className="p-valeur">{data.valeur}{data.unite}</p>
+                        <p className="p-text">{data.text}</p>
+                    </div>
                     
                 </div>
             </div>

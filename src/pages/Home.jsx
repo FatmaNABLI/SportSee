@@ -10,6 +10,7 @@ import { useParams } from 'react-router-dom'
 function Home() {
   const {idUser} = useParams()
   const user = new User(idUser);
+  
   return (
     <main>
       <h1>User {idUser}</h1>
@@ -23,7 +24,7 @@ function Home() {
             <ScoreRadialBarChart data={[user.getScore()]} />
           </div>
         </div>
-        <RightBar/>
+        <RightBar keyData={user.getKeyData()}/>
       </div>
       
       

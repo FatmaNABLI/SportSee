@@ -2,10 +2,32 @@
     background-color: #FBFBFB;
     height: 124px;
     width: 100%;
-    margin: auto;
+    margin: 0px auto;
+    padding: 32px ;
 }
-.img-container{
+/*.img-container{
     width: 60px;
     height: 60px;
-    color: red;
+   
+}
+img{
+    display: block;
+    width: 20px;
+    height: auto;
+    margin:auto;
+    padding-top: 18px;
+    opacity: 1;
+}*/
+.img-text{
+    display: flex;
+}
+.p-valeur{
+    font-size: 20px;
+    font-weight: 700;
+    color: #282D30;
+}
+.p-text{
+    font-size: 14px;
+    font-weight: 500;
+    color: #74798C;
 }
