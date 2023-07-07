@@ -4,9 +4,8 @@ import {USER_MAIN_DATA,USER_ACTIVITY,USER_AVERAGE_SESSIONS,USER_PERFORMANCE} fro
 export class User{
     constructor(idUser){  
         this.id= idUser;
-        console.log(import.meta.env.VITE_APP_ENV)
+        //console.log(import.meta.env.VITE_APP_ENV)
         const u = USER_MAIN_DATA.find(elt=>elt.id ==idUser);
-        //console.log(process.env.REACT_APP_ENV)
         //console.log(u);
         this.firstName = u.userInfos.firstName;
         this.lastName = u.userInfos.lastName;

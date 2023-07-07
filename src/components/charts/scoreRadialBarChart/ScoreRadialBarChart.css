@@ -4,6 +4,16 @@
     ;
 }
 .container_score{
+    width: 70%;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 30px;
+}
+.progress-label{
+    font-size: 26px;
+    font-weight: 700;
+}
+.objectif-label{
+    fill:#74798C;
+    font-weight: 500;
+    font-size: 20px;
 }

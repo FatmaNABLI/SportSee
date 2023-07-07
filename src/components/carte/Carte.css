@@ -5,21 +5,13 @@
     margin: 0px auto;
     padding: 32px ;
 }
-/*.img-container{
-    width: 60px;
-    height: 60px;
-   
-}
-img{
-    display: block;
-    width: 20px;
-    height: auto;
-    margin:auto;
-    padding-top: 18px;
-    opacity: 1;
-}*/
+
 .img-text{
     display: flex;
+}
+.img-text div{
+    /*border: 1px solid black;*/
+    margin-left: 20px;
 }
 .p-valeur{
     font-size: 20px;
@@ -30,4 +22,5 @@ img{
     font-size: 14px;
     font-weight: 500;
     color: #74798C;
+    margin-top: 15px;
 }

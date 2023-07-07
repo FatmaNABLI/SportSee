@@ -7,8 +7,6 @@ function ScoreRadialBarChart({data}){
         <div className="score-chart">
            <div className="container_score">
             <RadialBarChart data={data}
-                    cx="50%" 
-                    cy="50%"
                     innerRadius={90}
                     width={200} height={200}
                     background = "#fff"
@@ -29,15 +27,36 @@ function ScoreRadialBarChart({data}){
 
                       />
                        <circle cx="50%" cy="50%" fill="white" r="85"></circle>
+                       <text x={20} y={10} fill="#000" textAnchor="middle" dominantBaseline="central">
+                          <tspan fontSize="15" fontWeight="700" fill='#20253A'>Score</tspan>
+                      </text>
                       <text
                         x={100}
-                        y={100}
+                        y={90}
                         textAnchor="middle"
                         dominantBaseline="middle"
                         className="progress-label"
                       >
                       {data[0].score}%
+                      </text> 
+                      <text
+                        x={100}
+                        y={120}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        className="objectif-label"
+                      >
+                        De votre
                       </text>  
+                      <text
+                        x={100}
+                        y={140}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        className="objectif-label"
+                      >
+                        objectif
+                      </text> 
               </RadialBarChart>
 
             </div>         

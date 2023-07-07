@@ -6,7 +6,8 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    Legend
+    Legend,
+    ResponsiveContainer
   } from "recharts";
 
 function ActivityBarChart({data}){
@@ -24,7 +25,8 @@ function ActivityBarChart({data}){
    
     return(
         <div className="barChart-container" style={{background:"#FBFBFB"}}>
-            <BarChart
+          <ResponsiveContainer width="100%" height="100%">
+          <BarChart
             width={800}
             height={320}
             
@@ -50,6 +52,7 @@ function ActivityBarChart({data}){
             <Bar  yAxisId='right' name='Poids (kg)' barSize={7} radius={[10, 10, 0, 0]} dataKey="kilogram" fill="#000" style={{"borderRadius":"5px"}} />
             <Bar  yAxisId='left' name='Calories brûlées (kCal)' barSize={7} radius={[10, 10, 0, 0]} dataKey="calories" fill="red" />
             </BarChart>
+          </ResponsiveContainer>
         </div>
 )
 }
