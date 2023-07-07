@@ -6,11 +6,17 @@ import SessionAverageLineChart from '../components/charts/sessionAverageLineChar
 import { User } from '../entity/User'
 import './Home.css'
 import { useParams } from 'react-router-dom'
+import {getUserMainDataFromAPI,getUserActivityFromAPI,getUserPerformanceFromAPI,getUserAverageSessionsFromAPI} from '../api/fetchData'
+import { useEffect } from 'react'
 
 function Home() {
   const {idUser} = useParams()
+  useEffect((  )=>{
+    getUserMainDataFromAPI(idUser)
+    .then(( data) => console.log(data))
+  },[])
   const user = new User(idUser);
-  
+ 
   return (
     <main>
       <h1>User {idUser}</h1>

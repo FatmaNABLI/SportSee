@@ -11,6 +11,7 @@ export class User{
         this.firstName = u.userInfos.firstName;
         this.lastName = u.userInfos.lastName;
         this.age = u.userInfos.age;
+        // eslint-disable-next-line no-prototype-builtins
         u.hasOwnProperty('score')? this.todayScore = u.score : this.todayScore = u.todayScore
         //this.todayScore = u.score;
         this.keyData = u.keyData;
