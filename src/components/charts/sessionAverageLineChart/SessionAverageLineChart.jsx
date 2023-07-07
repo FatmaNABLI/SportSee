@@ -30,13 +30,13 @@ function SessionAverageLineChart({data}){
 
     return(
         <div className='line-chart-container' style={{background:"#FF0000",width:"30%"}}>
-            <LineChart width={258} height={200} data={data}
-            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+            <ResponsiveContainer width="100%" height="100%">
+            <LineChart  data={data}
+            margin={{ top: 40, right: 0, left: 0, bottom: 0 }}>
                 <XAxis dataKey="day" tick={{ fill: '#FFFFFF', opacity: '0.5' }} axisLine={false} tickLine={false} />
                 <YAxis hide={true} domain={['dataMin - 15', 'dataMax + 10']}/>
                 <Tooltip content={<CustomTooltipSessions />} 
                 position={{ y: 0 }} cursor={<CustomCursor />}
-
                 />
                 
                 <Line type="monotone" dataKey="sessionLength" 
@@ -55,6 +55,8 @@ function SessionAverageLineChart({data}){
                     </tspan>
                 </text>
             </LineChart>
+            </ResponsiveContainer>
+            
         </div>
         
     )
