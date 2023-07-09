@@ -1,0 +1,48 @@
+#error{
+    color: #FF6060;
+    text-align: center;
+}
+#error:first-child{
+    font-size: 288px;
+    font-weight: 700;
+}
+#error:nth-child(2){
+    font-size: 36px;
+    font-weight: 500;
+}
+#error a{
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+/**********************************
+*          Responsive             *
+**********************************/
+
+@media screen and (max-width: 768px) {
+    
+    #error:first-child{
+        font-size: 150px; 
+    }
+    #error:nth-child(2){
+        font-size: 24px;
+    }
+    #error a{
+        font-size: 16px;
+
+    }
+}
+@media screen and (max-width: 375px) {
+   
+    #error:first-child{
+        font-size: 96px;
+    }
+    #error:nth-child(2){
+        font-size: 18px;
+    }
+    #error a{
+        font-size: 14px;
+
+    }
+}
