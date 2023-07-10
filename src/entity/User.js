@@ -33,6 +33,7 @@ export class User{
         main.hasOwnProperty('score')? this.todayScore = main.score : this.todayScore = main.todayScore
         if(main.keyData)
             this.keyData = main.keyData;
+        if(activity)
         if(activity.sessions)
             this.activity = activity.sessions;
         if(performance)

@@ -10,6 +10,7 @@ import {getUserMainDataFromAPI,getUserActivityFromAPI,getUserPerformanceFromAPI,
 import { useEffect, useState } from 'react'
 import {USER_MAIN_DATA,USER_ACTIVITY,USER_AVERAGE_SESSIONS,USER_PERFORMANCE} from '../../data/data.js'
 import Error from '../error/Error'
+import { Loader } from '../../components/loader/Loader'
 
 function Profil() {
   const {idUser} = useParams()
@@ -17,7 +18,9 @@ function Profil() {
   const [userActivity, setUserActivity] = useState()
   const [userAverageSession, setUserAverageSession] = useState()
   const [userPerformance, setUserPerformance] = useState()
+  const [isDataLoading, setDataLoading] = useState(true)
   const [isError,setIsError] = useState(false)
+
 
   const ENV = import.meta.env.VITE_APP_ENV;
 
@@ -37,7 +40,10 @@ function Profil() {
       .catch(error => setIsError(true))
       
       getUserPerformanceFromAPI(idUser)
-      .then((data)=> setUserPerformance(data))
+      .then((data)=>{
+        setUserPerformance(data)
+        setDataLoading(false)
+      } )
       .catch(error => setIsError(true))
       
     }else{
@@ -46,12 +52,15 @@ function Profil() {
       setUserPerformance(USER_PERFORMANCE.find(elt=>elt.userId ==idUser))
       setUserAverageSession(USER_AVERAGE_SESSIONS.find(elt=>elt.userId ==idUser))
     }
-  },[idUser,ENV])
+  },[])
   let user = {}
    if (!(( userMainData === undefined) && (userActivity === undefined)&& (userPerformance ===undefined)&& (userAverageSession === undefined))){
     user= new User(userMainData,userActivity,userPerformance,userAverageSession)
    } 
   
+   if(isDataLoading){
+    return <Loader/>
+   }else{
   return (
     isError? <Error />:
     <main>
@@ -60,7 +69,7 @@ function Profil() {
         <div className='charts-container'>
           {userActivity?<ActivityBarChart data={user.getActivity()} />:null}
           <div className="session-performance-score-container">
-            {userAverageSession?<SessionAverageLineChart data={user.getAverageSessions()}/>:null}
+            {userAverageSession!==undefined?<SessionAverageLineChart data={user.getAverageSessions()}/>:null}
             {userPerformance ?<PerformanceRadarChart data={user.getPerformance()}/>:null}
             {userMainData?<ScoreRadialBarChart data={[user.getScore()]} />:null}
           </div>
@@ -72,6 +81,7 @@ function Profil() {
       
     </main>
   )
+   }
 }
 
 export default Profil
