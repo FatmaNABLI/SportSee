@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Home from './pages/Home.jsx'
+import Profil from './pages/Profil/Profil.jsx'
 import './index.css'
 import Header from './components/header/Header.jsx'
 import SideBar from './components/sidebar/SideBar.jsx'
@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Header/>
       <Router>
         <Routes>
-        <Route path="/:idUser" element ={<Home/>} />
+        <Route path="/:idUser" element ={<Profil/>} />
         </Routes>
       </Router>
     <SideBar/>
