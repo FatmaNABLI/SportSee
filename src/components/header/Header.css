@@ -28,3 +28,13 @@ header ul li{
     font-weight: 500;
     font-size: 24px;
 }
+nav a{
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+    text-decoration: none;
+    
+}
+nav a.active{
+    text-decoration: underline;
+}

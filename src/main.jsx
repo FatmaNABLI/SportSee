@@ -9,13 +9,18 @@ import {
   Route,
   Routes
 } from "react-router-dom";
+import Empty from './pages/Empty/Empty.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-      <Header/>
+      
       <Router>
+      <Header/>
         <Routes>
-        <Route path="/:idUser" element ={<Profil/>} />
+        <Route path="/" element ={<Empty title={"Home"}/>} />
+        <Route path="/user/:idUser" element ={<Profil/>} />
+        <Route path="/reglages" element ={<Empty title={"Réglages"}/>} />
+        <Route path="/communaute" element ={<Empty title={"Communauté"}/>} />
         </Routes>
       </Router>
     <SideBar/>
