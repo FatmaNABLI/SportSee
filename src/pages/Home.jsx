@@ -13,34 +13,33 @@ import Error from './error/Error'
 
 function Home() {
   const {idUser} = useParams()
-  const [userMainData, setUserMainData] = useState({})
-  const [userActivity, setUserActivity] = useState({})
-  const [userAverageSession, setUserAverageSession] = useState({})
-  const [userPerformance, setUserPerformance] = useState({})
-  const [error,setError] = useState(null)
+  const [userMainData, setUserMainData] = useState()
+  const [userActivity, setUserActivity] = useState()
+  const [userAverageSession, setUserAverageSession] = useState()
+  const [userPerformance, setUserPerformance] = useState()
+  const [isError,setIsError] = useState(false)
 
   const ENV = import.meta.env.VITE_APP_ENV;
 
   useEffect(( )=>{
     if(ENV == 'production'){
-      getUserMainDataFromAPI(idUser)
-      .then(( data) => setUserMainData(data))
-      .catch((error) =>   setError(true))
- 
-  
-      getUserActivityFromAPI(idUser)
-      .then((data)=> setUserActivity(data))
-      .catch((error) =>   setError(true))
+        getUserMainDataFromAPI(idUser)
+        .then(( data) => setUserMainData(data))
+        .catch(error => setIsError(true))
+
+
+        getUserActivityFromAPI(idUser)
+        .then((data)=> setUserActivity(data))
+        .catch(error => setIsError(true))
 
       getUserAverageSessionsFromAPI(idUser)
       .then((data)=>setUserAverageSession(data))
-      .catch((error) =>   setError(true))
+      .catch(error => setIsError(true))
+      
       getUserPerformanceFromAPI(idUser)
-      .then((data)=>{
-        setUserPerformance(data)
-        
-      })
-      .catch((error) =>   setError(true))
+      .then((data)=> setUserPerformance(data))
+      .catch(error => setIsError(true))
+      
     }else{
       setUserMainData(USER_MAIN_DATA.find(elt=>elt.id ==idUser))
       setUserActivity(USER_ACTIVITY.find(elt=>elt.userId ==idUser))
@@ -49,14 +48,12 @@ function Home() {
     }
   },[])
   let user = {}
-   if (userMainData && userActivity && userPerformance && userAverageSession){
+   if (!(( userMainData === undefined) && (userActivity === undefined)&& (userPerformance ===undefined)&& (userAverageSession === undefined))){
     user= new User(userMainData,userActivity,userPerformance,userAverageSession)
    } 
   
-   if(error){
-    return <Error />
-   }
   return (
+    isError? <Error />:
     <main>
       <h1>User {idUser}</h1>
       <div className='main-container'>

@@ -6,7 +6,13 @@ function getUserDataFromAPI(URI){
     const data = await response.json();
     return data*/
     return fetch(SERVER + URI)
-            .then(response => response.json())
+            .then(response => {
+                if(response.ok == true)
+                    return response.json()
+                else{
+                    throw new Error()
+                }
+            })
             .then(response => response.data)
 }
 function getUserMainDataFromAPI(idUser){
