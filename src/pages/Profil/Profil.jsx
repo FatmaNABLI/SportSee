@@ -28,16 +28,16 @@ function Profil() {
     if(ENV == 'production'){
         getUserMainDataFromAPI(idUser)
         .then(( data) => setUserMainData(data))
-        .catch(error => setIsError(true))
+        .catch(() => setIsError(true))
 
 
         getUserActivityFromAPI(idUser)
         .then((data)=> setUserActivity(data))
-        .catch(error => setIsError(true))
+        .catch(() => setIsError(true))
 
       getUserAverageSessionsFromAPI(idUser)
       .then((data)=>setUserAverageSession(data))
-      .catch(error => setIsError(true))
+      .catch(() => setIsError(true))
       
       getUserPerformanceFromAPI(idUser)
       .then((data)=>{
@@ -51,6 +51,7 @@ function Profil() {
       setUserActivity(USER_ACTIVITY.find(elt=>elt.userId ==idUser))
       setUserPerformance(USER_PERFORMANCE.find(elt=>elt.userId ==idUser))
       setUserAverageSession(USER_AVERAGE_SESSIONS.find(elt=>elt.userId ==idUser))
+      setDataLoading(false);
     }
   },[])
   let user = {}
@@ -68,7 +69,7 @@ function Profil() {
         <div className='charts-container'>
           {userActivity?<ActivityBarChart data={user.getActivity()} />:null}
           <div className="session-performance-score-container">
-            {userAverageSession!==undefined?<SessionAverageLineChart data={user.getAverageSessions()}/>:null}
+            {userAverageSession?<SessionAverageLineChart data={user.getAverageSessions()}/>:null}
             {userPerformance ?<PerformanceRadarChart data={user.getPerformance()}/>:null}
             {userMainData?<ScoreRadialBarChart data={[user.getScore()]} />:null}
           </div>
