@@ -57,8 +57,7 @@ function Profil() {
    if (!(( userMainData === undefined) && (userActivity === undefined)&& (userPerformance ===undefined)&& (userAverageSession === undefined))){
     user= new User(userMainData,userActivity,userPerformance,userAverageSession)
    } 
-  
-   if(isDataLoading){
+   if(isDataLoading && !isError){
     return <Loader/>
    }else{
   return (
