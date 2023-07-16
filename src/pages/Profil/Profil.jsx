@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react'
 import {USER_MAIN_DATA,USER_ACTIVITY,USER_AVERAGE_SESSIONS,USER_PERFORMANCE} from '../../data/data.js'
 import Error from '../error/Error'
 import { Loader } from '../../components/loader/Loader'
+import { Greeting } from '../../components/greeting/Greeting'
 
 function Profil() {
   const {idUser} = useParams()
@@ -55,7 +56,7 @@ function Profil() {
     }
   },[])
   let user = {}
-   if (!(( userMainData === undefined) && (userActivity === undefined)&& (userPerformance ===undefined)&& (userAverageSession === undefined))){
+   if (userMainData  && userActivity && userPerformance && userAverageSession){
     user= new User(userMainData,userActivity,userPerformance,userAverageSession)
    } 
    if(isDataLoading && !isError){
@@ -64,7 +65,7 @@ function Profil() {
   return (
     isError? <Error />:
     <main>
-      <h1>User {idUser}</h1>
+      <Greeting name={user.firstName}/>
       <div className='main-container'>
         <div className='charts-container'>
           {userActivity?<ActivityBarChart data={user.getActivity()} />:null}
@@ -78,7 +79,7 @@ function Profil() {
 
       </div>
       
-      
+   
     </main>
   )
    }

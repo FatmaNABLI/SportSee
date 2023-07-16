@@ -1,0 +1,13 @@
+#greeting-text{
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+#greeting-text span{
+    color: red;
+}
+#felicitation-text{
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 70px;
+}

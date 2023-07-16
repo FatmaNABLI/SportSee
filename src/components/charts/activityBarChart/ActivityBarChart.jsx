@@ -29,23 +29,23 @@ function ActivityBarChart({data}){
           <BarChart
             width={800}
             height={320}
-            
             data={data}
             margin={{
-                top: 5,
-                right: 30,
+                top: 10,
+                right: 20,
                 left: 20,
                 bottom: 5
             }}
             >
-            <text x={120} y={20} fill="#000" textAnchor="middle" dominantBaseline="central">
+            <text x={120} y={19} fill="#000" textAnchor="middle" dominantBaseline="central">
                     <tspan fontSize="15" fontWeight="700">Activité quotidienne</tspan>
             </text>
-            <CartesianGrid vertical='false' strokeDasharray='3' height={1} horizontalPoints={[90, 185]} />
+            <CartesianGrid vertical='false' strokeDasharray='3' height={1} horizontalPoints={[90, 180]} />
             <XAxis dataKey="day" tickLine={false} domain={[1,7]} stroke='#9B9EAC'/>
-            <YAxis  yAxisId='left' dataKey='calories' orientation='left'stroke='#9B9EAC'domain={['dataMin -50', 'dataMax+100']} hide={true}/>
-                      
-            <YAxis  yAxisId='right' dataKey='kilogram'   domain={['dataMin -1', 'dataMax+2']} tickCount='3' orientation="right" axisLine={false} tickLine={false}   tickMargin='30' 
+            {/* Axe calories à gauche : invisible*/}
+            <YAxis  yAxisId='left' dataKey='calories' orientation='left'stroke='#9B9EAC'domain={['dataMin -50', 'dataMax+100']} hide={true}/>                   
+            {/* Axe poids à droite */}
+            <YAxis  yAxisId='right' dataKey='kilogram'   domain={['dataMin', 'dataMax+1']} tickCount='4' orientation="right" axisLine={false} tickLine={false} 
                         width={45} stroke='#9B9EAC' />
             <Tooltip content={<CustomTooltipActivity />} />
             <Legend iconType="circle" iconSize="8px" verticalAlign="top" align="right"/>

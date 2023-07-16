@@ -20,3 +20,9 @@
     flex-direction: column;
     padding: 15px 5px;
 }
+span.recharts-legend-item-text{
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    color: #74798C !important;
+}
