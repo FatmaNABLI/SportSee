@@ -14,5 +14,18 @@ main{
   justify-content: space-between;
 }
 .charts-container{
-  width: 75%;
+  width: 80%;
+}
+
+/**********************************
+*          Responsive             *
+**********************************/
+@media screen and (max-width: 1000px) {
+  .main-container{
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .charts-container{
+    width: 100%;
+  }
 }

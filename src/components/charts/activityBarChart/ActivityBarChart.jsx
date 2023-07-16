@@ -32,8 +32,8 @@ function ActivityBarChart({data}){
             data={data}
             margin={{
                 top: 10,
-                right: 20,
-                left: 20,
+                right: 30,
+                left: 30,
                 bottom: 5
             }}
             >
@@ -41,12 +41,13 @@ function ActivityBarChart({data}){
                     <tspan fontSize="15" fontWeight="700">Activité quotidienne</tspan>
             </text>
             <CartesianGrid vertical='false' strokeDasharray='3' height={1} horizontalPoints={[90, 180]} />
-            <XAxis dataKey="day" tickLine={false} domain={[1,7]} stroke='#9B9EAC'/>
+            {/* scale=point permet de supprimer l'espace sur les extrémités de l'axe */}
+            <XAxis dataKey="day" tickLine={false} domain={[1,7]} stroke='#9B9EAC' scale='point' />
             {/* Axe calories à gauche : invisible*/}
             <YAxis  yAxisId='left' dataKey='calories' orientation='left'stroke='#9B9EAC'domain={['dataMin -50', 'dataMax+100']} hide={true}/>                   
             {/* Axe poids à droite */}
-            <YAxis  yAxisId='right' dataKey='kilogram'   domain={['dataMin', 'dataMax+1']} tickCount='4' orientation="right" axisLine={false} tickLine={false} 
-                        width={45} stroke='#9B9EAC' />
+            <YAxis  yAxisId='right' dataKey='kilogram'   domain={['dataMin-1', 'dataMax+1']} tickCount='4' orientation="right" axisLine={false} tickLine={false} 
+                     tickMargin={20}   width={45} stroke='#9B9EAC' />
             <Tooltip content={<CustomTooltipActivity />} />
             <Legend iconType="circle" iconSize="8px" verticalAlign="top" align="right"/>
             <Bar  yAxisId='right' name='Poids (kg)' barSize={7} radius={[10, 10, 0, 0]} dataKey="kilogram" fill="#000" style={{"borderRadius":"5px"}} />
