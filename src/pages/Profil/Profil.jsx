@@ -24,7 +24,6 @@ function Profil() {
 
 
   const ENV = import.meta.env.VITE_APP_ENV;
-
   useEffect(( )=>{
     if(ENV == 'production'){
         getUserMainDataFromAPI(idUser)
@@ -33,7 +32,7 @@ function Profil() {
 
 
         getUserActivityFromAPI(idUser)
-        .then((data)=> setUserActivity(data))
+        .then((data)=> setUserActivity(data)) 
         .catch(() => setIsError(true))
 
       getUserAverageSessionsFromAPI(idUser)
